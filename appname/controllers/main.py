@@ -43,3 +43,12 @@ def logout():
 @login_required
 def restricted():
     return "You can only see this if you are logged in!", 200
+
+
+@main.route("/about")
+def about():
+    return render_template("about.html")
+
+@main.route("/board")
+def board():
+    return render_template("board.html")

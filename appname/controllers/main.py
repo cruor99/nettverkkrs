@@ -1,11 +1,16 @@
 from flask import Blueprint, render_template, flash, request, redirect, url_for
 from flask.ext.login import login_user, logout_user, login_required
+from flask_flatpages import FlatPages
+import markdown
+
+from flask import Markup
 
 from appname import cache
 from appname.forms import LoginForm
 from appname.models import User
 
 main = Blueprint('main', __name__)
+
 
 
 @main.route('/')
@@ -52,3 +57,7 @@ def about():
 @main.route("/board")
 def board():
     return render_template("board.html")
+
+@main.route("/test")
+def test():
+    return render_template("06-feb-2015.md")

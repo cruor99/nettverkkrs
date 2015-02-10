@@ -3,13 +3,17 @@ import os
 
 from flask.ext.script import Manager, Server
 from flask.ext.script.commands import ShowUrls, Clean
+from flask.ext.markdown import Markdown
 from appname import create_app
 from appname.models import db, User
+from flask.ext.misaka import Misaka
 
 # default to dev config because no one should use this in
 # production anyway
 env = os.environ.get('APPNAME_ENV', 'dev')
 app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+
+Misaka(app)
 
 manager = Manager(app)
 manager.add_command("server", Server(host="0.0.0.0",port=80))

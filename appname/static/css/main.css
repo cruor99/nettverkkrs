@@ -7,3 +7,8 @@
 {
     text-align: center;
 }
+
+.jumbotron {
+    background-image: url(../images/nettverk_kristiansand.png);
+}
+
